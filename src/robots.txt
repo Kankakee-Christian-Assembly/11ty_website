@@ -1,0 +1,4 @@
+Sitemap: https://www.kankakeechristianassembly.org/sitemap.xml
+
+User-agent: *
+Disallow:

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block meta %}
+      {% metagen
+        title=title or site.title,
+        desc=desc or description  or site.description,
+        url=site.url + page.url,
+        twitter_card_type=type,
+        twitter_handle=twitter,
+        name="Kankakee Christian Assembly"
+      %}
+    {% endblock meta %}
+    <meta property="og:locale" content="en_US" />
+    <meta property="article:author" content="Kankakee Christian Assembly" />
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="generator" content="{{ eleventy.generator }}">
+    <link rel="alternate" href="{{ site.feed.path | url }}" type="application/atom+xml" title="{{ site.title }}">
+    <link rel="alternate" href="{{ site.jsonfeed.path | url }}" type="application/json" title="{{ site.title }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
+
+    <!-- critical css is inlined, so we can async the rest -->
+    <link rel="preload" href="/static/css/site.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" as="font" type="font/woff2" href="/static/font/gentium-book-basic/files/gentium-book-basic-latin-700-normal.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="/static/font/gentium-book-basic/files/gentium-book-basic-latin-400-normal.woff2" crossorigin>
+    {% jsonLdScript meta, type, tags %}
+  </head>
+  <body>
+    <div class="cnt">
+        {% include 'nav.njk' %}
+        <div class="bdy fade-in" id="main">
+          {% block body %}
+              {{ content | safe }}
+          {% endblock body %}
+          </div>
+        {% include 'foot.njk' %}
+    </div>
+
+  </body>
+</html>

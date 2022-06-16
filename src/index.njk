@@ -1,0 +1,30 @@
+---
+layout: layout.njk
+---
+
+<div class="schd">
+  <div class="schd-row">
+    <div class="schd-hd">Lord's Day</div>
+    <div class="schd-itm">Breaking of Bread <div class="time">9:30</div></div>
+    <div class="schd-itm">Sunday School <div class="time">11:15</div></div>
+    <div class="schd-itm">Preaching <div class="time">5:00</div></div>
+  </div>
+  <div class="schd-row">
+    <div class="schd-hd">Tuesday</div>
+    <div class="schd-itm">Prayer & Bible Study <div class="time">7:00</div></div>
+  </div>
+</div>
+<div class="help" style="display: none;">
+  <h2 class="help-title">Need help?</h2>
+  <div class="help-text"><strong>Text, WhatsApp:&#8195;</strong><span class="help-phone"></span></div>
+  <div class="help-email"><strong>Email:&#8195;</strong><span class="help-email"><a href=""></a></span></div>
+  </div>
+  <script>
+    window.onload = function(){
+      var ph1=815,ph2=592,ph3=4675,em1='help',em2='kankakeechristianassembly',em3='org';
+      document.querySelector('.help-text .help-phone').innerHTML = ph1 + '-' + ph2 + '-' + ph3;
+      document.querySelector('.help-email .help-email a').setAttribute('href','mailto:'+em1 + '@' + em2 + '.org');
+      document.querySelector('.help-email .help-email a').innerHTML = em1 + '@' + em2 + '.org';
+      document.querySelector('.help').style.removeProperty('display');
+    };
+  </script>
