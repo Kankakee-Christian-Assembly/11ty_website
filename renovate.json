@@ -16,7 +16,7 @@
   "labels": ["maintenance", "renovate"],
   "packageRules": [
     {
-      "matchUpdateTypes": ["pin", "digest"],
+      "matchUpdateTypes": ["pin", "digest", "minor", "chore"],
       "automerge": true
     },
     {
@@ -32,12 +32,8 @@
       "extends": "packages:test",
       "groupName": "test packages",
       "automerge": true
-    },
-    {
-      "matchDepTypes": ["devDependencies"],
-      "automerge": true
     }
   ],
-  "schedule": ["before 8am on Monday"],
+  "schedule": ["before 10pm on Sunday"],
   "timezone": "America/Chicago"
 }
